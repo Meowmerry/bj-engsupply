@@ -21,10 +21,10 @@ const Location: React.FC = () => {
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 space-y-6">
                         <h3 className="text-xl font-bold text-primary mb-4">{companyInfo.name}</h3>
 
-                        <div className="flex items-start gap-3">
+                        <a href="https://www.google.com/maps/search/B%26J+Engineering+and+Supply+54%2F58+Ratbamrung+Road+Huai+Pong+Rayong+21150" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group">
                             <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                            <p className="text-secondary text-sm leading-relaxed">{companyInfo.address}</p>
-                        </div>
+                            <p className="text-secondary text-sm leading-relaxed group-hover:text-accent transition-colors">{companyInfo.address}</p>
+                        </a>
 
                         <div className="flex items-center gap-3">
                             <Phone className="w-5 h-5 text-accent flex-shrink-0" />
@@ -46,13 +46,25 @@ const Location: React.FC = () => {
                     </div>
 
                     {/* Location Map Image */}
-                    <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                        <img
-                            src={locationImg}
-                            alt="B&J Engineering Location Map"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+                    <a
+                        href="https://www.google.com/maps/search/B%26J+Engineering+and+Supply+54%2F58+Ratbamrung+Road+Huai+Pong+Rayong+21150"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="lg:col-span-2 rounded-xl overflow-hidden shadow-sm border border-gray-100 block group cursor-pointer"
+                    >
+                        <div className="relative">
+                            <img
+                                src={locationImg}
+                                alt="B&J Engineering Location Map"
+                                className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary/20">
+                                <span className="bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow-lg">
+                                    Open in Google Maps
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
